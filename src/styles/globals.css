@@ -1859,3 +1859,158 @@ select:focus-visible,
     cursor: none;
   }
 }
+/* =========================================
+   ABOUT PHOTO
+   ========================================= */
+
+.about__photo {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 4 / 5;
+  margin-left: auto;
+  overflow: hidden;
+  background: #080808;
+  border: 1px solid #f4e409;
+  box-shadow:
+    0 0 20px rgba(244, 228, 9, 0.12),
+    0 0 50px rgba(244, 228, 9, 0.06);
+}
+
+/* Full image */
+.about__photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /* Shows the whole photo */
+  object-fit: contain;
+  object-position: center;
+
+  background: #080808;
+}
+
+/* Subtle technical grid over image */
+.about__photo-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(244, 228, 9, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(244, 228, 9, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size: 35px 35px;
+
+  mix-blend-mode: screen;
+}
+
+/* Bottom information label */
+.about__photo-label {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 12px;
+
+  background: rgba(8, 8, 8, 0.88);
+  border: 1px solid rgba(244, 228, 9, 0.55);
+
+  color: #f4e409;
+
+  font-size: 10px;
+  letter-spacing: 1.5px;
+
+  backdrop-filter: blur(8px);
+}
+
+.about__photo-label span:last-child {
+  color: #858580;
+}
+
+/* Corner decorations */
+.about__photo-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.about__photo-corner--tl {
+  top: 12px;
+  left: 12px;
+
+  border-top: 2px solid #f4e409;
+  border-left: 2px solid #f4e409;
+}
+
+.about__photo-corner--tr {
+  top: 12px;
+  right: 12px;
+
+  border-top: 2px solid #f4e409;
+  border-right: 2px solid #f4e409;
+}
+
+.about__photo-corner--bl {
+  bottom: 12px;
+  left: 12px;
+
+  border-bottom: 2px solid #f4e409;
+  border-left: 2px solid #f4e409;
+}
+
+.about__photo-corner--br {
+  bottom: 12px;
+  right: 12px;
+
+  border-bottom: 2px solid #f4e409;
+  border-right: 2px solid #f4e409;
+}
+
+
+/* =========================================
+   HOVER EFFECT
+   ========================================= */
+
+.about__photo {
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.about__photo:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 0 25px rgba(244, 228, 9, 0.2),
+    0 0 60px rgba(244, 228, 9, 0.08);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .about__photo {
+    width: 100%;
+    max-width: 380px;
+    margin: 40px auto 0;
+  }
+
+  .about__photo-label {
+    font-size: 9px;
+  }
+}
